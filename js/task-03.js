@@ -19,7 +19,7 @@ galleryEl.style.flexWrap = "wrap";
 galleryEl.style.gap = "30px";
 galleryEl.style.listStyle = "none";
 const imageList = images.map(
-  (image) =>
-    `<li><img src='${image.url}' alt='${image.alt}' width='1200' height='800'/></li>`
+  image =>
+    `<li><img src='${image.url}' alt='${image.alt}' width='600' height='400'/></li>`
 );
-galleryEl.insertAdjacentHTML("beforeend", imageList);
+galleryEl.insertAdjacentHTML("beforeend", imageList.join(''));
