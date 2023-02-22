@@ -1,5 +1,5 @@
 const inputEl = document.querySelector("input");
-const validLength = +inputEl.getAttribute("data-length");
+const validLength = +inputEl.dataset.length;
 
 inputEl.addEventListener("blur", onInputBlur);
 
