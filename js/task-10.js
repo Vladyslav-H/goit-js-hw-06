@@ -1,34 +1,24 @@
 function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 }
-const divBoxesEl = document.querySelector('#boxes');
-const buttonCreateEl = document.querySelector('[data-create]');
-const buttonDestroyEl = document.querySelector('[data-destroy]');
-console.log(divBoxesEl.attributes);
+const divBoxesEl = document.querySelector("#boxes");
+const buttonCreateEl = document.querySelector("[data-create]");
+const buttonDestroyEl = document.querySelector("[data-destroy]");
+const inputEl = document.querySelector("input");
 
-buttonCreateEl.addEventListener('click', createBoxes);
+buttonDestroyEl.addEventListener("click", () => (divBoxesEl.innerHTML = ""));
+buttonCreateEl.addEventListener("click", createBoxes);
 
-function divSizesCounter(amount) {
-let value = 30;
-  for (let i = 0; i <= amount; i ++){
-  
-  value += 10;}
+function createBoxes() {
+  const amount = inputEl.value;
+  let string = "";
+  let size = 30;
+
+  for (let i = 1; i <= amount; i++) {
+    string += `<div 
+        style='background-color: ${getRandomHexColor()}; 
+        width:${size}px; height:${size}px' ></div>`;
+    size += 10;
+    }
+  divBoxesEl.insertAdjacentHTML("beforeend", string);
 }
-
-
-console.log(divSizesCounter(5));
-function createBoxes(amount) {
-  const counter = '10px';
-  
-  for (let i = 1; i <= amount; i++){
-    const div = document.createElement('div');
-    div.style.width = `${counter} + 5px`;
-    div.style.height =  `${divSizesCounter()}`;
-div.style.backgroundColor = `${getRandomHexColor()}`
-    
-    console.log(div);
-  }
-   
-  divBoxesEl
-}
-console.log(createBoxes(5));
